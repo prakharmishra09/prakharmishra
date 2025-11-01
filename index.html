@@ -9,20 +9,19 @@
 <body>
 
   <!-- Navbar -->
-<nav class="navbar">
-  <div class="logo">P</div>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
+  <nav class="navbar">
+    <div class="logo">P</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <h1>Prakhar Mishra</h1>
+    <h1></h1>
     <p>High School Student With Big Dreams</p>
     <a href="#projects" class="btn">View Projects and My Work</a>
   </section>
@@ -30,22 +29,34 @@
   <!-- About Section -->
   <section id="about" class="section">
     <h2>About Me</h2>
-    <p>Hello! I’m a high school student passionate about coding, sports, and learning new skills. I love creating websites and experimenting with design and interactivity.</p>
+    <p>Hello! I am Prakhar Mishra, a current high school student.</p>
+    <p>I like learning new things, experimenting with projects, and writing in my free time.</p>
+    <p>I aspire to be a triple-board certified cardiosurgeon.</p>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="project-list">
-      <div class="project">
+      <div class="project" onclick="showModal('portfolio')">
         <h3>Portfolio Website</h3>
-        <p>A clean portfolio showcasing my coding and design skills.</p>
-        <button onclick="showMessage('Portfolio Website')">Learn More</button>
+        <p>A minimalistic website showcasing my coding and design skills.</p>
+        <button>Learn More</button>
       </div>
-      <div class="project">
-        <h3>Fan Page</h3>
-        <p>A fan site for Colorado Buffaloes with stats and highlights.</p>
-        <button onclick="showMessage('Fan Page')">Learn More</button>
+      <div class="project" onclick="showModal('tennis')">
+        <h3>Tennis</h3>
+        <p>A collection of videos and film for tennis for college recruiting</p>
+        <button>View Now</button>
+      </div>
+      <div class="project" onclick="showModal('academics')">
+        <h3>Academics</h3>
+        <p>A summary of my goals, grades, extracurriculars.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="project" onclick="showModal('book')">
+        <h3>The Grueling Hour</h3>
+        <p>A futuristic book about time travel and how John goes back in time. </p>
+        <button>Learn More</button>
       </div>
     </div>
   </section>
@@ -61,6 +72,14 @@
   <footer>
     <p>© 2025 Prakhar Mishra</p>
   </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

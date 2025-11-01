@@ -1,13 +1,14 @@
 /* General */
 body {
   font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  background-color: #121212;
+  background-color: #000000;
   color: #e0e0e0;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  margin-top: 70px; /* space for navbar */
+  margin-top: 70px;
   text-align: center;
+  cursor: none;
 }
 
 /* Navbar */
@@ -19,18 +20,17 @@ body {
   background-color: #1f1f1f;
   display: flex;
   align-items: center;
-  justify-content: center; /* centers links */
+  justify-content: center;
   box-shadow: 0 1px 6px rgba(0,0,0,0.7);
   z-index: 1000;
 }
 
-/* Logo circle on far left */
 .logo {
   width: 45px;
   height: 45px;
   background-color: #232628;
   color: white;
-  border-radius: 50%;
+  border-radius: 35%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,11 +47,10 @@ body {
 .logo:hover {
   background-color: #000000;
   color: #ffffff;
-  box-shadow: 0 0 15px #ffffff; /* bright white glow */
+  box-shadow: 0 0 10.5px #e7cd0e;
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Navbar links centered */
 .nav-links {
   display: flex;
   gap: 40px;
@@ -66,7 +65,7 @@ body {
 
 .navbar a:hover {
   color: #ffffff;
-  text-shadow: 0 0 8px rgba(255,255,255,0.3); /* pale glow */
+  text-shadow: 0 0 22px rgba(255,255,255,0.3);
 }
 
 /* Hero Section */
@@ -85,7 +84,7 @@ body {
   margin: 0;
   letter-spacing: 1px;
   color: #ffffff;
-  text-shadow: 0 0 15px rgba(0,71,171,0.7), 0 0 30px rgba(0,71,171,0.5); /* permanent glow */
+  text-shadow: 0 0 15px rgba(0,71,171,0.7), 0 0 0px rgba(0,71,171,0.5);
   transition: text-shadow 0.3s ease;
 }
 
@@ -94,7 +93,7 @@ body {
   margin: 10px 0 20px 0;
   font-weight: 400;
   color: #c0c0c0;
-  text-shadow: 0 0 5px rgba(255,255,255,0.2); /* subtle glow under subtitle */
+  text-shadow: 0 0 25px rgba(255,255,255,0.2);
 }
 
 .hero .btn {
@@ -111,7 +110,7 @@ body {
 .hero .btn:hover {
   background-color: #555555;
   color: #ffffff;
-  box-shadow: 0 0 12px rgba(255,255,255,0.3); /* pale glow */
+  box-shadow: 0 0 12px rgba(255,255,255,0.3);
 }
 
 /* Sections */
@@ -147,20 +146,16 @@ body {
   padding: 25px;
   width: 280px;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  cursor: pointer;
 }
 
 .project:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(255,255,255,0.2); /* subtle glow */
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 
-.project h3 {
-  color: #ffffff;
-}
-
-.project p {
-  color: #c0c0c0;
-}
+.project h3 { color: #ffffff; }
+.project p { color: #c0c0c0; }
 
 .project button {
   margin-top: 15px;
@@ -177,7 +172,7 @@ body {
 .project button:hover {
   background-color: #555555;
   color: #ffffff;
-  box-shadow: 0 0 12px rgba(255,255,255,0.3); /* pale glow */
+  box-shadow: 0 0 12px rgba(255,255,255,0.3);
 }
 
 /* Footer */
@@ -190,23 +185,63 @@ footer {
   background-color: #1f1f1f;
 }
 
-/* Apple-style dark scrollbar with pale glow on hover */
-::-webkit-scrollbar {
-  width: 8px;               
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1f1f1f; }
+::-webkit-scrollbar-thumb { background: #555; border-radius:4px; transition: 0.3s; }
+::-webkit-scrollbar-thumb:hover { background: #888; box-shadow:0 0 8px rgba(255,255,255,0.3); }
+
+/* Custom cursor */
+#cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: #ffb803;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 35px #ffffff;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
 }
 
-::-webkit-scrollbar-track {
-  background: #1f1f1f;   
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #555555; 
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
-  transition: background 0.3s, box-shadow 0.3s;
+.modal-content {
+  background-color: #1f1f1f;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  max-width: 500px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.2em;
+  position: relative;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #888888;
-  box-shadow: 0 0 8px rgba(255,255,255,0.3); /* pale glow */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  color: #ffb803;
+  transition: color 0.3s;
+}
+
+.close:hover { color: #ffffff; }
+
+html {
+  scroll-behavior: smooth;
 }
